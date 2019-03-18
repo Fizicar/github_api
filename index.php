@@ -1,10 +1,11 @@
 <?php
-//$api = file_get_contents("https://api.github.com/zen");
+/**
+ * 
+ * Simple Github Search
+ * 
+ */
 
 if($_GET){
-
-
-
 $query_string = str_replace(' ', '+', $_GET['search']);
 $sort_by = $_GET['order_by'];
 $order = $_GET['order'];
@@ -61,10 +62,7 @@ function callAPI($method, $url, $data){
 
 
     $pagination_urls = paggination_urls($page,$page_count);
-   //  echo '<pre>';
-   //  var_dump($page_count);
-   //  var_dump( paggination_urls($page,$page_count) );
-   //  echo '</pre>';
+
 }
 
 
@@ -74,13 +72,13 @@ function paggination_urls($page,$last){
    else
       $link = "http"; 
    
-   // Here append the common URL characters. 
+
    $link .= "://"; 
    
-   // Append the host(domain name, ip) to the URL. 
+
    $link .= $_SERVER['HTTP_HOST']; 
    
-   // Append the requested resource location to the URL 
+
    $link .= $_SERVER['REQUEST_URI']; 
    
    if (strpos($link, '&page=') === false) {
