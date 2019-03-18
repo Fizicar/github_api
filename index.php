@@ -55,10 +55,13 @@ function callAPI($method, $url, $data){
 
     $get_data = callAPI('GET', 'https://api.github.com/search/repositories?q='.$query_string.'&sort='.$sort_by.'&page='.$page.'&per_page=15&order='.$order, false);
     $response = json_decode($get_data, true);
-
     $total_count = $response["total_count"];
 
     $page_count = ceil($total_count / 15);
+
+    if($page_count > 66){
+       $page_count = 67;
+    }
 
 
     $pagination_urls = paggination_urls($page,$page_count);
