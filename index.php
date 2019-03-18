@@ -136,12 +136,13 @@ function paggination_urls($page,$last){
          <div class="form-row">
             <div class="form-group col-md-6">
             <label>Search:</label>
-               <input type="text" class="form-control" id="input_search" name='search' placeholder="Search...">
+               <input type="text" class="form-control" id="input_search" name='search' placeholder="Search..." value='<?php if(isset($_GET['search'])){ echo $_GET['search'];}; ?>'>
             </div>
             <div class="form-group col-md-2">
             <label>Order by:</label>
                <select id="inputState" class="form-control" name='order_by'>
-                  <option value='stars' selected>Stars</option>
+                  <option value='best-match' selected>Best Match</option>
+                  <option value='stars' >Stars</option>
                   <option value='forks'>Forks</option>
                   <option value='help-wanted-issues'>Help Wanted Issues</option>
                   <option value='updated'>Last Updated</option>
